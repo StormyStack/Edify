@@ -21,8 +21,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $passwordErr = "Password is required";
     } else {
         $password = test_input($_POST["password"]);
-        if (strlen($password) < 8) {
-            $passwordErr = "Password must be at least 8 characters";
+        if (strlen($password) < 6 || !preg_match('/^[A-Za-z0-9]+$/', $password)) {
+            $passwordErr = "Password must be at least 6 characters and contain only letters and numbers";
         }
     }
 
