@@ -7,21 +7,8 @@ if (!isset($_SESSION['user_id']) || $_SESSION['role'] != 'admin') {
 
 include("../config/db.php");
 
-function getUserCount($conn, $role) {
-    $stmt = $conn->prepare("SELECT COUNT(*) AS total FROM users WHERE role = ?");
-    $stmt->bind_param("s", $role);
-    $stmt->execute();
-    $result = $stmt->get_result();
-    $count = 0;
-    if ($row = $result->fetch_assoc()) {
-        $count = $row['total'];
-    }
-    $stmt->close();
-    return $count;
-}
-
-$student_count = getUserCount($conn, 'student');
-$teacher_count = getUserCount($conn, 'teacher');
+$student_count = $conn->query("SELECT COUNT(*) AS total FROM users WHERE role = 'student'")->fetch_assoc()['total'];
+$teacher_count = $conn->query("SELECT COUNT(*) AS total FROM users WHERE role = 'teacher'")->fetch_assoc()['total'];
 ?>
 <!DOCTYPE html>
 <html>
