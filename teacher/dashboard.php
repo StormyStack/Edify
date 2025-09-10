@@ -15,7 +15,7 @@ $assessment_count = $conn->query("SELECT COUNT(*) AS total FROM assessments WHER
 <html>
 <head>
     <title>Teacher Dashboard</title>
-    <link rel="stylesheet" href="../assets/css/admin.css">
+    <link rel="stylesheet" href="../assets/css/dashboard.css">
 </head>
 <body>
     <h1>Welcome Teacher</h1>

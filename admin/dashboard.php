@@ -14,7 +14,7 @@ $teacher_count = $conn->query("SELECT COUNT(*) AS total FROM users WHERE role = 
 <html>
 <head>
     <title>Admin Dashboard</title>
-    <link rel="stylesheet" href="../assets/css/admin.css">
+    <link rel="stylesheet" href="../assets/css/dashboard.css">
 </head>
 <body>
     <h1>Welcome Admin</h1>
