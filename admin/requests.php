@@ -11,14 +11,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $request_id = $_POST['request_id'];
     $action = $_POST['action'];
 
-    if ($action === 'Done') {
-        $stmt = $conn->prepare("UPDATE requests SET status = 'Done' WHERE id = ?");
-        $stmt->bind_param("i", $request_id);
-        $stmt->execute();
-    } elseif ($action === 'Cancel') {
+    if ($action === 'Cancel') {
         $stmt = $conn->prepare("UPDATE requests SET status = 'Cancelled' WHERE id = ?");
         $stmt->bind_param("i", $request_id);
         $stmt->execute();
+        $stmt->close();
     }
 
     header("Location: " . $_SERVER['PHP_SELF']);
@@ -58,10 +55,6 @@ $result = $conn->query("SELECT * FROM requests ORDER BY id ASC");
                         <td><?php echo htmlspecialchars($request['status'] ?? 'Pending'); ?></td>
                         <td>
                             <?php if (($request['status'] ?? '') === 'Pending'): ?>
-                                <form method="post" style="display:inline;">
-                                    <input type="hidden" name="request_id" value="<?php echo $request['id']; ?>">
-                                    <button type="submit" name="action" value="Done">Done</button>
-                                </form>
                                 <form method="post" style="display:inline;">
                                     <input type="hidden" name="request_id" value="<?php echo $request['id']; ?>">
                                     <button type="submit" name="action" value="Cancel">Cancel</button>
