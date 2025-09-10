@@ -44,7 +44,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 </head>
 <body>
     <header>
-        <div class="header-center"><h1>Edify Login</h1></div>
+        <div class="header-center"><a href="index.php" style="text-decoration:none;color:inherit;"><h2>Edify Login</h2></a></div>
         <div class="header-right">
             <a href="register.php">Register</a>
         </div>
