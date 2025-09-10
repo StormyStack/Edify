@@ -28,9 +28,10 @@ $teacher_count = $conn->query("SELECT COUNT(*) AS total FROM users WHERE role = 
         </div>
 
         <ul>
-            <li><a href="manage_users.php">👥 Manage Users</a></li>
-            <li><a href="manage_courses.php">📚 Manage Courses</a></li>
-            <li><a href="../logout.php">🚪 Logout</a></li>
+            <li><a href="manage_users.php">Manage Users</a></li>
+            <li><a href="requests.php">Requests</a></li>
+            <li><a href="manage_courses.php">Manage Courses</a></li>
+            <li><a href="../logout.php">Logout</a></li>
         </ul>
     </div>
 </body>

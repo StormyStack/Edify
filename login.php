@@ -58,6 +58,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 <input type="text" name="username" placeholder="Username" required style="width: 50%; padding: 8px; margin:5px 0;"><br>
                 <input type="password" name="password" placeholder="Password" required style="width: 50%; padding: 8px; margin:5px 0;"><br>
                 <button class="btn" type="submit">Login</button>
+                <a class="btn" href="reset_password.php">Reset Password</a>
             </div>
         </form>
     </div>

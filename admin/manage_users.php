@@ -14,10 +14,18 @@ $result = $conn->query("SELECT id, username, role FROM users WHERE role != 'admi
 <head>
     <meta charset="UTF-8">
     <title>Manage Users</title>
-    <link rel="stylesheet" href="../assets/css/admin.css">
+    <link rel="stylesheet" href="../assets/css/dashboard.css">
 </head>
 <body>
     <h1>Manage Users</h1>
+    <?php if (isset($_GET['error'])): ?>
+    <p style="color: red; font-weight: bold;"><?php echo htmlspecialchars($_GET['error']); ?></p>
+<?php endif; ?>
+
+<?php if (isset($_GET['success'])): ?>
+    <p style="color: green; font-weight: bold;"><?php echo htmlspecialchars($_GET['success']); ?></p>
+<?php endif; ?>
+
     <div class="dashboard-container">
         <a href="dashboard.php">⬅ Back to Dashboard</a>
 
