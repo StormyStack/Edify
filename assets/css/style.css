@@ -1,0 +1,56 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background: #f5f6fa;
+    text-align: center;
+}
+header {
+    position: relative;
+    background: #007bff;
+    color: white;
+    padding: 10px 20px;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+.header-center {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.header-center h1 {
+    margin: 0;
+    font-size: 24px;
+}
+.header-right a {
+    color: white;
+    text-decoration: none;
+    margin-left: 15px;
+    font-weight: bold;
+}
+.container {
+    max-width: 600px;
+    margin: 30px auto;
+}
+
+.course {
+    margin: 10px 0;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.btn {
+    padding: 5px 10px;
+    border-radius: 4px;
+    text-decoration: none;
+    background: goldenrod;
+    color: white;
+    font-size: 14px;
+}
+
+.btn:hover {
+    background: #1e7e34;
+}

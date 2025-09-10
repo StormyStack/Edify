@@ -44,7 +44,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 </head>
 <body>
     <header>
-        <div class="header-center"><h1>LMS Login</h1></div>
+        <div class="header-center"><h1>Edify Login</h1></div>
         <div class="header-right">
             <a href="register.php">Register</a>
         </div>
