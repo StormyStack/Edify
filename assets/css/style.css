@@ -52,8 +52,6 @@
         .course:hover {
             transform: translateY(-5px);
         }
-
-        /* Make the entire card clickable */
         .course a {
             display: block;
             color: inherit;

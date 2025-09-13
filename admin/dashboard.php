@@ -31,6 +31,7 @@ $teacher_count = $conn->query("SELECT COUNT(*) AS total FROM users WHERE role = 
             <li><a href="manage_users.php">Manage Users</a></li>
             <li><a href="requests.php">Requests</a></li>
             <li><a href="manage_courses.php">Manage Courses</a></li>
+            <li><a href="enroll_requests.php">Enrollment Requests</a></li>
             <li><a href="../logout.php">Logout</a></li>
         </ul>
     </div>
