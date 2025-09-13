@@ -9,7 +9,7 @@ include("../config/db.php");
 
 $course_count = $conn->query("SELECT COUNT(*) AS total FROM courses WHERE id = ".$_SESSION['user_id'])->fetch_assoc()['total'];
 $student_count = $conn->query("SELECT COUNT(*) AS total FROM users WHERE role = 'student'")->fetch_assoc()['total'];
-//$assessment_count = $conn->query("SELECT COUNT(*) AS total FROM assessments WHERE id = ".$_SESSION['user_id'])->fetch_assoc()['total'];
+$assessment_count = $conn->query("SELECT COUNT(*) AS total FROM assessments WHERE id = ".$_SESSION['user_id'])->fetch_assoc()['total'];
 ?>
 <!DOCTYPE html>
 <html>
@@ -30,6 +30,7 @@ $student_count = $conn->query("SELECT COUNT(*) AS total FROM users WHERE role = 
 
         <ul>
             <li><a class="button" href="manage_courses.php">Manage Courses</a></li>
+            <li><a class="button" href="create_assesment.php">Create Assessment</a></li>
             <li><a class="button" href="../logout.php">Logout</a></li>
         </ul>
     </div>

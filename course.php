@@ -108,10 +108,10 @@ if (!$course) die("Course not found.");
     <?php endif; ?>
 
     <?php if (isset($_GET['enrolled'])): ?>
-        <p class="success-msg">Enrollment successful! ✅</p>
+        <p class="success-msg">Enrollment successful! </p>
     <?php endif; ?>
     <?php if (isset($_GET['already'])): ?>
-        <p class="error-msg">You are already enrolled in this course. ⚠️</p>
+        <p class="error-msg">You are already enrolled in this course. </p>
     <?php endif; ?>
 </main>
 </body>
