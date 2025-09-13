@@ -40,14 +40,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <html>
 <head>
     <title>Login</title>
-    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/reglog.css">
 </head>
 <body>
     <header>
-        <div class="header-center"><a href="index.php" style="text-decoration:none;color:inherit;"><h2>Edify Login</h2></a></div>
-        <div class="header-right">
-            <a href="register.php">Register</a>
-        </div>
+        <div><a href="index.php"><h2>Edify Login</h2></a></div>
+        <div><a href="register.php">Register</a></div>
     </header>
 
     <div class="container">
@@ -55,8 +53,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
         <form method="post">
             <div class="course">
-                <input type="text" name="username" placeholder="Username" required style="width: 50%; padding: 8px; margin:5px 0;"><br>
-                <input type="password" name="password" placeholder="Password" required style="width: 50%; padding: 8px; margin:5px 0;"><br>
+                <input type="text" name="username" placeholder="Username" required><br>
+                <input type="password" name="password" placeholder="Password" required><br>
                 <button class="btn" type="submit">Login</button>
                 <a class="btn" href="reset_password.php">Reset Password</a>
             </div>

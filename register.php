@@ -13,7 +13,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     } else {
         $username = test_input($_POST["username"]);
         if (!preg_match('/^[A-Za-z0-9._ ]+$/', $username)) {
-            $usernameErr = "Only letters, numbers, and underscores allowed";
+            $usernameErr = "Only letters, numbers, underscores and dots allowed";
         }
     }
 
@@ -58,54 +58,50 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 }
 
 function test_input($data){
-    $data = trim($data);
-    return $data;
+    return trim($data);
 }
 ?>
-
 <!DOCTYPE html>
+<html>
 <head>
     <title>Edify - Registration</title>
-    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/reglog.css">
 </head>
 <body>
 
 <header>
-    <div class="header-center"><a href="index.php" style="text-decoration:none;color:inherit;"><h2>Edify</h2></a></div>
-    <div class="header-right">
-        <a href="login.php" class="btn">Login</a>
-    </div>
+    <div><a href="index.php"><h2>Edify</h2></a></div>
+    <div><a href="login.php" class="btn">Login</a></div>
 </header>
 
 <main class="container">
     <h2>Register</h2>
 
-    <?php if($successMsg) echo "<p style='color:green'>$successMsg</p>"; ?>
+    <?php if($successMsg) echo "<p class='success'>$successMsg</p>"; ?>
 
     <form method="POST" class="form">
-        Username:<br>
+        <label>Username:</label><br>
         <input type="text" name="username" value="<?php echo $username; ?>">
-        <span style="color:red">* <?php echo $usernameErr; ?></span>
+        <span>* <?php echo $usernameErr; ?></span>
         <br><br>
 
-        Password:<br>
+        <label>Password:</label><br>
         <input type="password" name="password" value="<?php echo $password; ?>">
-        <span style="color:red">* <?php echo $passwordErr; ?></span>
+        <span>* <?php echo $passwordErr; ?></span>
         <br><br>
 
-        Role:<br>
+        <label>Role:</label><br>
         <select name="role">
             <option value="">Select Role</option>
             <option value="teacher" <?php if($role=="teacher") echo "selected"; ?>>Teacher</option>
             <option value="student" <?php if($role=="student") echo "selected"; ?>>Student</option>
         </select>
-        <span style="color:red">* <?php echo $roleErr; ?></span>
+        <span>* <?php echo $roleErr; ?></span>
         <br><br>
 
-        <input type="submit" class="btn btn-primary" value="Register">
+        <input type="submit" class="btn" value="Register">
     </form>
 </main>
 
-<script src="assets/js/script.js"></script>
 </body>
 </html>
