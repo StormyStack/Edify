@@ -1,0 +1,57 @@
+<?php
+session_start();
+include("config/db.php");
+
+if (!isset($_GET['id'])) die("Course not found.");
+
+$course_id = intval($_GET['id']);
+$stmt = $conn->prepare("SELECT * FROM courses WHERE id = ?");
+$stmt->bind_param("i", $course_id);
+$stmt->execute();
+$result = $stmt->get_result();
+$course = $result->fetch_assoc();
+
+if (!$course) die("Course not found.");
+?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title><?= htmlspecialchars($course['course_name']); ?> - Details</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+<header>
+    <h1>Edify</h1>
+    <div class="header-right">
+        <a href="index.php">Home</a>
+        <?php if(isset($_SESSION['role'])): ?>
+            <a href="dashboard.php">Dashboard</a>
+            <a href="logout.php">Logout</a>
+        <?php else: ?>
+            <a href="login.php">Login</a>
+            <a href="register.php">Register</a>
+        <?php endif; ?>
+    </div>
+</header>
+
+<main class="container course-details">
+    <img src="<?= !empty($course['image']) ? htmlspecialchars($course['image']) : 'assets/images/placeholder.png' ?>" alt="Course">
+    <h2><?= htmlspecialchars($course['course_name']); ?></h2>
+    <p><?= nl2br(htmlspecialchars($course['description'])); ?></p>
+    <div class="info">
+        <p><strong>Duration:</strong> <?= htmlspecialchars($course['duration']); ?></p>
+        <p><strong>Price:</strong> <?= htmlspecialchars($course['price']); ?> ৳</p>
+    </div>
+
+    <?php if(isset($_SESSION['role']) && $_SESSION['role'] === 'student'): ?>
+        <a href="enroll.php?course_id=<?= $course['id']; ?>" class="btn">Enroll Now</a>
+    <?php else: ?>
+        <p><em>You must be logged in as a student to enroll.</em></p>
+    <?php endif; ?>
+
+    <?php if (isset($_GET['enrolled'])) echo '<p class="success-msg">Enrollment successful! ✅</p>'; ?>
+    <?php if (isset($_GET['already'])) echo '<p class="error-msg">You are already enrolled in this course. ⚠️</p>'; ?>
+</main>
+</body>
+</html>
